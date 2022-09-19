@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Define Parameters Node",
+    "contact": {
+      "email": "jacob.jang@jam3.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/SOFTWARE_1/define-parameters-node/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Define Paramters",
+      "description": "Compute input params for node"
+    },
+    {
+      "name": "Pipeline Canvas State",
+      "description": "Stores UI Canvas state fro node object"
+    }
+  ],
+  "paths": {
+    "/node/defineParameters/type": {
+      "post": {
+        "tags": [
+          "Define Paramters"
+        ],
+        "description": "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
+        "operationId": "node/defineParameters",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/NodeState"
+        },
+        "responses": {
+          "201": {
+            "description": "item created"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/state/node/defineParameters": {
+      "post": {
+        "tags": [
+          "Pipeline Canvas State"
+        ],
+        "description": "Schema to validate node canvas UI state",
+        "operationId": "/state/node/defineParameters",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DefineParametersData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "item created"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DefineParametersData": {
+        "required": [
+          "id",
+          "manufacturer",
+          "name",
+          "releaseDate"
+        ],
+        "type": "object",
+        "properties": {
+          "projectID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "computeInputParams": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "canvasState": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "NodeState": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "id"
+              ],
+              "type": "object",
+              "properties": {
+                "specversion": {
+                  "type": "string",
+                  "example": "1.0"
+                },
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "com.gt4sd.pipeline"
+                },
+                "source": {
+                  "type": "string",
+                  "example": "/state/apply"
+                },
+                "subject": {
+                  "type": "string",
+                  "example": "/node/defineParameters/FEP"
+                },
+                "time": {
+                  "type": "string",
+                  "example": "2022-04-05T17:31:00Z"
+                },
+                "projectID": {
+                  "type": "string",
+                  "example": "uuid"
+                },
+                "datacontenttype": {
+                  "type": "string",
+                  "example": "application/json",
+                  "enum": [
+                    "application/json"
+                  ]
+                },
+                "data": {
+                  "$ref": "#/components/schemas/DefineParametersData"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
