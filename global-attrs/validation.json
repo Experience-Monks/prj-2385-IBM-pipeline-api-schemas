@@ -14,7 +14,8 @@
     "schemas" : {
       "email" : {
         "pattern" : "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",
-        "type" : "string"
+        "type" : "string",
+        "example" : "test@gmail.com"
       }
     }
   }
