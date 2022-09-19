@@ -1,0 +1,21 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Global Schema Attributes",
+    "description" : "",
+    "version" : "1.0"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/SOFTWARE_1/global-schema-attrs/1.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "paths" : { },
+  "components" : {
+    "schemas" : {
+      "email" : {
+        "pattern" : "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",
+        "type" : "string"
+      }
+    }
+  }
+}
