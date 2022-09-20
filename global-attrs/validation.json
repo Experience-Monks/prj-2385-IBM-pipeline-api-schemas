@@ -6,16 +6,207 @@
     "version" : "1.0"
   },
   "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/SOFTWARE_1/global-common-schemas/1.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  }, {
     "url" : "https://virtserver.swaggerhub.com/SOFTWARE_1/global-schema-attrs/1.0",
     "description" : "SwaggerHub API Auto Mocking"
   } ],
   "paths" : { },
   "components" : {
     "schemas" : {
-      "email" : {
-        "pattern" : "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",
-        "type" : "string",
-        "example" : "test@gmail.com"
+      "ComputeInputParams" : {
+        "required" : [ "data", "id", "type" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "uploadModel", "uploadTargetProtein", "defineParameters" ]
+          },
+          "data" : {
+            "type" : "object",
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/ComputeInputParamsDataObject"
+            }, {
+              "$ref" : "#/components/schemas/ComputeInputParamsDataParameters"
+            } ]
+          }
+        }
+      },
+      "ComputeInputParamsDataObject" : {
+        "required" : [ "key", "size" ],
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "size" : {
+            "type" : "number"
+          }
+        }
+      },
+      "ComputeInputParamsDataParameters" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/ComputeInputParamsDataParameters_inner"
+        }
+      },
+      "CanvasStateNode" : {
+        "required" : [ "data", "id", "position" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "example" : "1"
+          },
+          "position" : {
+            "$ref" : "#/components/schemas/CanvasStateNode_position"
+          },
+          "data" : {
+            "type" : "object",
+            "example" : {
+              "shape" : "round-rect",
+              "width" : 150,
+              "height" : 150,
+              "label" : "Round Rectangle",
+              "color" : "#ffffff"
+            }
+          },
+          "type" : {
+            "type" : "string",
+            "example" : "shape"
+          },
+          "style" : {
+            "type" : "object"
+          },
+          "className" : {
+            "type" : "object"
+          },
+          "targetPosition" : {
+            "type" : "string",
+            "enum" : [ "top", "left", "right", "bottom" ]
+          },
+          "sourcePosition" : {
+            "type" : "string",
+            "enum" : [ "top", "left", "right", "bottom" ]
+          },
+          "hidden" : {
+            "type" : "boolean"
+          },
+          "selected" : {
+            "type" : "boolean"
+          },
+          "dragging" : {
+            "type" : "boolean"
+          },
+          "draggable" : {
+            "type" : "boolean"
+          },
+          "selectable" : {
+            "type" : "boolean"
+          },
+          "connectable" : {
+            "type" : "boolean"
+          },
+          "dragHandle" : {
+            "type" : "string"
+          },
+          "width" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "height" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "parentNode" : {
+            "type" : "string"
+          },
+          "zIndex" : {
+            "type" : "number"
+          },
+          "extent" : {
+            "oneOf" : [ {
+              "type" : "string"
+            }, {
+              "type" : "array",
+              "example" : [ [ 1, 2 ], [ 3, 4 ] ],
+              "items" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "number"
+                }
+              }
+            } ]
+          },
+          "positionAbsolute" : {
+            "$ref" : "#/components/schemas/CanvasStateNode_position"
+          }
+        }
+      },
+      "CanvasStateEdge" : {
+        "required" : [ "id", "source", "sourceHandle", "target", "targetHandle" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "example" : "5->9"
+          },
+          "source" : {
+            "type" : "string",
+            "example" : "5"
+          },
+          "target" : {
+            "type" : "string",
+            "example" : "9"
+          },
+          "sourceHandle" : {
+            "type" : "string",
+            "enum" : [ "top", "left", "right", "bottom" ]
+          },
+          "targetHandle" : {
+            "type" : "string",
+            "enum" : [ "top", "left", "right", "bottom" ]
+          }
+        }
+      },
+      "ComputeInputParamsDataParameters_inner" : {
+        "required" : [ "data", "id" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "enum" : [ "FEP", "AAA", "BBB", "CCC", "DDD", "EEE" ]
+          },
+          "data" : {
+            "type" : "object",
+            "properties" : {
+              "bondStrength" : {
+                "type" : "number"
+              },
+              "toxicity" : {
+                "type" : "number"
+              }
+            }
+          }
+        }
+      },
+      "CanvasStateNode_position" : {
+        "type" : "object",
+        "properties" : {
+          "x" : {
+            "type" : "number"
+          },
+          "y" : {
+            "type" : "number"
+          }
+        },
+        "example" : null
       }
     }
   }
