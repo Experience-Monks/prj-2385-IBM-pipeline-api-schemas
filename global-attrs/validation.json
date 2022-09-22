@@ -56,6 +56,31 @@
           "$ref" : "#/components/schemas/ComputeInputParamsDataParameters_inner"
         }
       },
+      "NodeAnyData" : {
+        "type" : "object",
+        "properties" : {
+          "shape" : {
+            "type" : "string",
+            "example" : "round-rect"
+          },
+          "width" : {
+            "type" : "number",
+            "example" : 150
+          },
+          "height" : {
+            "type" : "number",
+            "example" : 150
+          },
+          "label" : {
+            "type" : "string",
+            "example" : "Round Rectangle"
+          },
+          "color" : {
+            "type" : "string",
+            "example" : "#ffffff"
+          }
+        }
+      },
       "CanvasStateNode" : {
         "required" : [ "data", "id", "position" ],
         "type" : "object",
@@ -69,13 +94,11 @@
           },
           "data" : {
             "type" : "object",
-            "example" : {
-              "shape" : "round-rect",
-              "width" : 150,
-              "height" : 150,
-              "label" : "Round Rectangle",
-              "color" : "#ffffff"
-            }
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ComputeInputParams"
+            }, {
+              "$ref" : "#/components/schemas/NodeAnyData"
+            } ]
           },
           "type" : {
             "type" : "string",
