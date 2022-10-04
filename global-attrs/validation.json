@@ -19,21 +19,14 @@
         "required" : [ "data", "id", "type" ],
         "type" : "object",
         "properties" : {
-          "id" : {
-            "type" : "string",
-            "format" : "uuid"
+          "targets" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ComputeInputParams_targets"
+            }
           },
-          "type" : {
-            "type" : "string",
-            "enum" : [ "uploadModel", "uploadTargetProtein", "defineParameters" ]
-          },
-          "data" : {
-            "type" : "object",
-            "oneOf" : [ {
-              "$ref" : "#/components/schemas/ComputeInputParamsDataObject"
-            }, {
-              "$ref" : "#/components/schemas/ComputeInputParamsDataParameters"
-            } ]
+          "inputParams" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams"
           }
         }
       },
@@ -198,6 +191,76 @@
           }
         }
       },
+      "ComputeInputParams_targets" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "uploadModel", "uploadTargetProtein", "defineParameters" ]
+          },
+          "data" : {
+            "type" : "object",
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/ComputeInputParamsDataObject"
+            }, {
+              "$ref" : "#/components/schemas/ComputeInputParamsDataParameters"
+            } ]
+          }
+        }
+      },
+      "ComputeInputParams_inputParams_params_batch_size" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "integer",
+            "example" : 32
+          }
+        }
+      },
+      "ComputeInputParams_inputParams_params_temperature" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "number",
+            "example" : 1.4
+          }
+        }
+      },
+      "ComputeInputParams_inputParams_params_generated_length" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "integer",
+            "example" : 100
+          }
+        }
+      },
+      "ComputeInputParams_inputParams_params" : {
+        "type" : "object",
+        "properties" : {
+          "batch_size" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams_params_batch_size"
+          },
+          "temperature" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams_params_temperature"
+          },
+          "generated_length" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams_params_generated_length"
+          }
+        }
+      },
+      "ComputeInputParams_inputParams" : {
+        "type" : "object",
+        "properties" : {
+          "params" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams_params"
+          }
+        }
+      },
       "ComputeInputParamsDataParameters_inner" : {
         "required" : [ "data", "id" ],
         "type" : "object",
@@ -228,8 +291,7 @@
           "y" : {
             "type" : "number"
           }
-        },
-        "example" : null
+        }
       }
     }
   }
