@@ -538,6 +538,23 @@
           }
         }
       },
+      "inline_response_201_data_params_batch_size_range" : {
+        "type" : "object",
+        "properties" : {
+          "max" : {
+            "type" : "integer",
+            "example" : 100
+          },
+          "min" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "step" : {
+            "type" : "integer",
+            "example" : 10
+          }
+        }
+      },
       "inline_response_201_data_params_batch_size" : {
         "type" : "object",
         "properties" : {
@@ -552,6 +569,9 @@
           "default" : {
             "type" : "string",
             "example" : "32"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/inline_response_201_data_params_batch_size_range"
           },
           "type" : {
             "type" : "string",
