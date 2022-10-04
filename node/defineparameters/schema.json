@@ -81,7 +81,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "/node/param/get"
+          "example" : "/node/params"
         }, {
           "name" : "ce-subject",
           "in" : "header",
@@ -91,7 +91,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "/node/param/get/parametersNode"
+          "example" : "/node/params/get"
         }, {
           "name" : "ce-project-id",
           "in" : "header",
@@ -263,7 +263,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "/node/param"
+          "example" : "/node/params"
         }, {
           "name" : "ce-subject",
           "in" : "header",
@@ -273,7 +273,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "/node/param/validation"
+          "example" : "/node/params/validation"
         }, {
           "name" : "ce-project-id",
           "in" : "header",
