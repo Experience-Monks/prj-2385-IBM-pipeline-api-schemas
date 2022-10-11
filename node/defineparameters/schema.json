@@ -541,11 +541,11 @@
       "inline_response_201_data_params_batch_size_range" : {
         "type" : "object",
         "properties" : {
-          "max" : {
+          "maximum" : {
             "type" : "integer",
             "example" : 100
           },
-          "min" : {
+          "minimum" : {
             "type" : "integer",
             "example" : 0
           },
@@ -583,6 +583,23 @@
           }
         }
       },
+      "inline_response_201_data_params_temperature_range" : {
+        "type" : "object",
+        "properties" : {
+          "maximum" : {
+            "type" : "number",
+            "example" : 1.0
+          },
+          "minimum" : {
+            "type" : "number",
+            "example" : 10.0
+          },
+          "step" : {
+            "type" : "number",
+            "example" : 0.1
+          }
+        }
+      },
       "inline_response_201_data_params_temperature" : {
         "type" : "object",
         "properties" : {
@@ -597,6 +614,9 @@
           "default" : {
             "type" : "string",
             "example" : "1.4"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/inline_response_201_data_params_temperature_range"
           },
           "type" : {
             "type" : "string",
