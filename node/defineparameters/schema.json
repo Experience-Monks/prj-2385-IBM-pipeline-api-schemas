@@ -1,0 +1,860 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Algorithm Input - Parameters",
+    "description" : "Schema for GT4SD input node compute parameters and canvas state",
+    "contact" : {
+      "email" : "ben.moody@jam3.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.1"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/SOFTWARE_1/define-parameters-node/1.0.1",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "paths" : {
+    "/algorithm/parameters" : {
+      "get" : {
+        "tags" : [ "Get algorithm parameters data" ],
+        "description" : "Get algorithm parameters object",
+        "operationId" : "/algorithm/parameters/get",
+        "parameters" : [ {
+          "name" : "security",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "Authorization Token"
+        }, {
+          "name" : "ce-specversion",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "1.0"
+        }, {
+          "name" : "ce-type",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "com.gt4sd.ui"
+        }, {
+          "name" : "ce-time",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "2018-04-05T03:56:24Z"
+        }, {
+          "name" : "ce-id",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+        }, {
+          "name" : "ce-source",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "/algorithm/parameters"
+        }, {
+          "name" : "ce-subject",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "/algorithm/parameters/get"
+        }, {
+          "name" : "ce-project-id",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "example" : "uuid"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Successful operation",
+            "headers" : {
+              "ce-specversion" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "1.0"
+                }
+              },
+              "ce-type" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "ibm.gt4sd.bff"
+                }
+              },
+              "ce-time" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "2022-04-05T17:31:00Z"
+                }
+              },
+              "ce-id" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                }
+              },
+              "ce-source" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "/gt4sd/bff"
+                }
+              },
+              "ce-subject" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "/algorithm/parameters/get/success"
+                }
+              },
+              "ce-project-id" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "uuid"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_201"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized request"
+          },
+          "404" : {
+            "description" : "Data not found"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Send algorithm parameters for validation" ],
+        "description" : "Schema to validate algorithm input parameters object",
+        "operationId" : "/algorithm/parameters/validation",
+        "parameters" : [ {
+          "name" : "security",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "Authorization Token"
+        }, {
+          "name" : "ce-specversion",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "1.0"
+        }, {
+          "name" : "ce-type",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "com.gt4sd.ui"
+        }, {
+          "name" : "ce-time",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "2018-04-05T03:56:24Z"
+        }, {
+          "name" : "ce-id",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+        }, {
+          "name" : "ce-source",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "/gt4sd/ui"
+        }, {
+          "name" : "ce-subject",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "/algorithm/parameters/validation"
+        }, {
+          "name" : "ce-project-id",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "example" : "uuid"
+        } ],
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/NodeInput"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation",
+            "headers" : {
+              "ce-specversion" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "1.0"
+                }
+              },
+              "ce-type" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "ibm.gt4sd.bff"
+                }
+              },
+              "ce-time" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "2022-04-05T17:31:00Z"
+                }
+              },
+              "ce-id" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                }
+              },
+              "ce-source" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "/gt4sd/bff"
+                }
+              },
+              "ce-subject" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "/algorithm/parameters/validation/pass"
+                }
+              },
+              "ce-node-id" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "id-from-validation-event"
+                }
+              },
+              "ce-project-id" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "uuid"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Failed Validation",
+            "headers" : {
+              "ce-specversion" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "1.0"
+                }
+              },
+              "ce-type" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "ibm.gt4sd.bff"
+                }
+              },
+              "ce-time" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "2022-04-05T17:31:00Z"
+                }
+              },
+              "ce-id" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                }
+              },
+              "ce-source" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "/gt4sd/bff"
+                }
+              },
+              "ce-subject" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "/algorithm/parameters/validation/fail"
+                }
+              },
+              "ce-node-id" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "id-from-validation-event"
+                }
+              },
+              "ce-project-id" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "example" : "uuid"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized request"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "NodeInputData" : {
+        "type" : "object",
+        "properties" : {
+          "parameters" : {
+            "$ref" : "#/components/schemas/NodeInputData_parameters"
+          }
+        }
+      },
+      "inline_response_201" : {
+        "required" : [ "data" ],
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/inline_response_201_data"
+          }
+        }
+      },
+      "inline_response_200" : {
+        "required" : [ "data" ],
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "$ref" : "#/components/schemas/inline_response_200_data"
+          }
+        }
+      },
+      "inline_response_400" : {
+        "required" : [ "errors" ],
+        "type" : "object",
+        "properties" : {
+          "errors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/inline_response_400_errors"
+            }
+          }
+        }
+      },
+      "NodeInputData_parameters_batch_size" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "integer",
+            "example" : 32
+          }
+        }
+      },
+      "NodeInputData_parameters_temperature" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "number",
+            "example" : 1.4
+          }
+        }
+      },
+      "NodeInputData_parameters_generated_length" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "integer",
+            "example" : 100
+          }
+        }
+      },
+      "NodeInputData_parameters" : {
+        "type" : "object",
+        "properties" : {
+          "batch_size" : {
+            "$ref" : "#/components/schemas/NodeInputData_parameters_batch_size"
+          },
+          "temperature" : {
+            "$ref" : "#/components/schemas/NodeInputData_parameters_temperature"
+          },
+          "generated_length" : {
+            "$ref" : "#/components/schemas/NodeInputData_parameters_generated_length"
+          }
+        }
+      },
+      "inline_response_201_data_parameters_batch_size_range" : {
+        "type" : "object",
+        "properties" : {
+          "maximum" : {
+            "type" : "integer",
+            "example" : 100
+          },
+          "minimum" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "step" : {
+            "type" : "integer",
+            "example" : 10
+          }
+        }
+      },
+      "inline_response_201_data_parameters_batch_size" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string",
+            "example" : "Batch size used for the generative model sampling."
+          },
+          "title" : {
+            "type" : "string",
+            "example" : "Batch Size"
+          },
+          "default" : {
+            "type" : "string",
+            "example" : "32"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/inline_response_201_data_parameters_batch_size_range"
+          },
+          "type" : {
+            "type" : "string",
+            "example" : "integer"
+          },
+          "optional" : {
+            "type" : "boolean",
+            "example" : true
+          }
+        }
+      },
+      "inline_response_201_data_parameters_temperature_range" : {
+        "type" : "object",
+        "properties" : {
+          "maximum" : {
+            "type" : "number",
+            "example" : 1.0
+          },
+          "minimum" : {
+            "type" : "number",
+            "example" : 10.0
+          },
+          "step" : {
+            "type" : "number",
+            "example" : 0.1
+          }
+        }
+      },
+      "inline_response_201_data_parameters_temperature" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string",
+            "example" : "Temperature parameter for the softmax sampling in decoding."
+          },
+          "title" : {
+            "type" : "string",
+            "example" : "Temperature"
+          },
+          "default" : {
+            "type" : "string",
+            "example" : "1.4"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/inline_response_201_data_parameters_temperature_range"
+          },
+          "type" : {
+            "type" : "string",
+            "example" : "number"
+          },
+          "optional" : {
+            "type" : "boolean",
+            "example" : true
+          }
+        }
+      },
+      "inline_response_201_data_parameters_generated_length" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string",
+            "example" : "Maximum length in tokens of the generated molcules (relates to the SMILES length)."
+          },
+          "title" : {
+            "type" : "string",
+            "example" : "Generated Length"
+          },
+          "default" : {
+            "type" : "string",
+            "example" : "100"
+          },
+          "type" : {
+            "type" : "string",
+            "example" : "integer"
+          },
+          "optional" : {
+            "type" : "boolean",
+            "example" : true
+          }
+        }
+      },
+      "inline_response_201_data_parameters" : {
+        "type" : "object",
+        "properties" : {
+          "batch_size" : {
+            "$ref" : "#/components/schemas/inline_response_201_data_parameters_batch_size"
+          },
+          "temperature" : {
+            "$ref" : "#/components/schemas/inline_response_201_data_parameters_temperature"
+          },
+          "generated_length" : {
+            "$ref" : "#/components/schemas/inline_response_201_data_parameters_generated_length"
+          }
+        }
+      },
+      "inline_response_201_data" : {
+        "type" : "object",
+        "properties" : {
+          "parameters" : {
+            "$ref" : "#/components/schemas/inline_response_201_data_parameters"
+          }
+        }
+      },
+      "inline_response_200_data" : {
+        "required" : [ "message" ],
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string",
+            "example" : "Algorithm parameters are valid"
+          }
+        }
+      },
+      "inline_response_400_errors" : {
+        "required" : [ "code", "details", "message", "parameter", "value" ],
+        "type" : "object",
+        "properties" : {
+          "parameter" : {
+            "type" : "string",
+            "example" : "temperature"
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Temperature out of allowed range 1-100"
+          },
+          "code" : {
+            "type" : "string",
+            "example" : "INVALID_PARAMETER"
+          },
+          "details" : {
+            "type" : "string",
+            "example" : "outside range"
+          },
+          "value" : {
+            "type" : "string",
+            "example" : ""
+          }
+        }
+      }
+    },
+    "responses" : {
+      "NodeValidationPass" : {
+        "description" : "Successful operation",
+        "headers" : {
+          "ce-specversion" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "1.0"
+            }
+          },
+          "ce-type" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "ibm.gt4sd.bff"
+            }
+          },
+          "ce-time" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "2022-04-05T17:31:00Z"
+            }
+          },
+          "ce-id" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            }
+          },
+          "ce-source" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "/gt4sd/bff"
+            }
+          },
+          "ce-subject" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "/algorithm/parameters/validation/pass"
+            }
+          },
+          "ce-node-id" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "id-from-validation-event"
+            }
+          },
+          "ce-project-id" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "uuid"
+            }
+          }
+        },
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/inline_response_200"
+            }
+          }
+        }
+      },
+      "NodeValidationFail" : {
+        "description" : "Failed Validation",
+        "headers" : {
+          "ce-specversion" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "1.0"
+            }
+          },
+          "ce-type" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "ibm.gt4sd.bff"
+            }
+          },
+          "ce-time" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "2022-04-05T17:31:00Z"
+            }
+          },
+          "ce-id" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            }
+          },
+          "ce-source" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "/gt4sd/bff"
+            }
+          },
+          "ce-subject" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "/algorithm/parameters/validation/fail"
+            }
+          },
+          "ce-node-id" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "id-from-validation-event"
+            }
+          },
+          "ce-project-id" : {
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "example" : "uuid"
+            }
+          }
+        },
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/inline_response_400"
+            }
+          }
+        }
+      }
+    },
+    "requestBodies" : {
+      "NodeInput" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "required" : [ "data" ],
+              "type" : "object",
+              "properties" : {
+                "data" : {
+                  "$ref" : "#/components/schemas/NodeInputData"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
