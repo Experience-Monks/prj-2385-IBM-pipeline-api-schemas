@@ -1,8 +1,8 @@
 {
   "openapi" : "3.0.0",
   "info" : {
-    "title" : "Algorithm Input - Parameters",
-    "description" : "Schema for GT4SD input node compute parameters and canvas state",
+    "title" : "Algorithm Parameters - Get/Save",
+    "description" : "Schemas for Algorithm Params GET and SAVE requests",
     "contact" : {
       "email" : "ben.moody@jam3.com"
     },
@@ -181,7 +181,7 @@
           }
         }
       },
-      "post" : {
+      "put" : {
         "tags" : [ "Save/Validate algorithm parameters" ],
         "description" : "Algorithm parameter Save/Validate payload",
         "operationId" : "/algorithm/parameters/save",
@@ -707,7 +707,7 @@
         "properties" : {
           "message" : {
             "type" : "string",
-            "example" : "Algorithm parameters are valid"
+            "example" : "Algorithm parameters saved successfully"
           }
         }
       },
