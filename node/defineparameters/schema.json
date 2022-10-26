@@ -81,7 +81,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "/algorithm/parameters"
+          "example" : "/gt4sd/ui"
         }, {
           "name" : "ce-subject",
           "in" : "header",
@@ -433,6 +433,7 @@
   "components" : {
     "schemas" : {
       "NodeInputData" : {
+        "required" : [ "parameters" ],
         "type" : "object",
         "properties" : {
           "parameters" : {
@@ -459,9 +460,13 @@
         }
       },
       "inline_response_400" : {
-        "required" : [ "errors" ],
+        "required" : [ "errors", "message" ],
         "type" : "object",
         "properties" : {
+          "message" : {
+            "type" : "string",
+            "example" : "General user message"
+          },
           "errors" : {
             "type" : "array",
             "items" : {
@@ -471,6 +476,7 @@
         }
       },
       "NodeInputData_parameters_batch_size" : {
+        "required" : [ "value" ],
         "type" : "object",
         "properties" : {
           "value" : {
@@ -480,6 +486,7 @@
         }
       },
       "NodeInputData_parameters_temperature" : {
+        "required" : [ "value" ],
         "type" : "object",
         "properties" : {
           "value" : {
@@ -489,6 +496,7 @@
         }
       },
       "NodeInputData_parameters_generated_length" : {
+        "required" : [ "value" ],
         "type" : "object",
         "properties" : {
           "value" : {
@@ -512,6 +520,7 @@
         }
       },
       "inline_response_201_data_parameters_batch_size_range" : {
+        "required" : [ "maximum", "minimum", "step" ],
         "type" : "object",
         "properties" : {
           "maximum" : {
@@ -529,6 +538,7 @@
         }
       },
       "inline_response_201_data_parameters_batch_size" : {
+        "required" : [ "description", "optional", "range", "title", "type" ],
         "type" : "object",
         "properties" : {
           "description" : {
@@ -557,6 +567,7 @@
         }
       },
       "inline_response_201_data_parameters_temperature_range" : {
+        "required" : [ "maximum", "minimum", "step" ],
         "type" : "object",
         "properties" : {
           "maximum" : {
@@ -574,6 +585,7 @@
         }
       },
       "inline_response_201_data_parameters_temperature" : {
+        "required" : [ "description", "optional", "range", "title", "type" ],
         "type" : "object",
         "properties" : {
           "description" : {
@@ -602,6 +614,7 @@
         }
       },
       "inline_response_201_data_parameters_generated_length" : {
+        "required" : [ "description", "optional", "range", "title", "type" ],
         "type" : "object",
         "properties" : {
           "description" : {
@@ -641,6 +654,7 @@
         }
       },
       "inline_response_201_data" : {
+        "required" : [ "parameters" ],
         "type" : "object",
         "properties" : {
           "parameters" : {
