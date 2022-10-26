@@ -182,9 +182,9 @@
         }
       },
       "post" : {
-        "tags" : [ "Send algorithm parameters for validation" ],
-        "description" : "Schema to validate algorithm input parameters object",
-        "operationId" : "/algorithm/parameters/validation",
+        "tags" : [ "Save/Validate algorithm parameters" ],
+        "description" : "Algorithm parameter Save/Validate payload",
+        "operationId" : "/algorithm/parameters/save",
         "parameters" : [ {
           "name" : "security",
           "in" : "header",
@@ -254,7 +254,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "/algorithm/parameters/validation"
+          "example" : "/algorithm/parameters/save"
         }, {
           "name" : "ce-project-id",
           "in" : "header",
@@ -319,15 +319,15 @@
                 "explode" : false,
                 "schema" : {
                   "type" : "string",
-                  "example" : "/algorithm/parameters/validation/pass"
+                  "example" : "/algorithm/parameters/save/success"
                 }
               },
-              "ce-node-id" : {
+              "ce-event-id" : {
                 "style" : "simple",
                 "explode" : false,
                 "schema" : {
                   "type" : "string",
-                  "example" : "id-from-validation-event"
+                  "example" : "ce-id-from-save-event"
                 }
               },
               "ce-project-id" : {
@@ -395,15 +395,15 @@
                 "explode" : false,
                 "schema" : {
                   "type" : "string",
-                  "example" : "/algorithm/parameters/validation/fail"
+                  "example" : "/algorithm/parameters/save/fail"
                 }
               },
-              "ce-node-id" : {
+              "ce-event-id" : {
                 "style" : "simple",
                 "explode" : false,
                 "schema" : {
                   "type" : "string",
-                  "example" : "id-from-validation-event"
+                  "example" : "ce-id-from-save-event"
                 }
               },
               "ce-project-id" : {
@@ -538,7 +538,7 @@
         }
       },
       "inline_response_201_data_parameters_batch_size" : {
-        "required" : [ "description", "optional", "range", "title", "type" ],
+        "required" : [ "description", "optional", "range", "title", "type", "value" ],
         "type" : "object",
         "properties" : {
           "description" : {
@@ -563,6 +563,19 @@
           "optional" : {
             "type" : "boolean",
             "example" : true
+          },
+          "value" : {
+            "nullable" : true,
+            "example" : "",
+            "oneOf" : [ {
+              "type" : "string"
+            }, {
+              "type" : "integer"
+            }, {
+              "type" : "number"
+            }, {
+              "type" : "boolean"
+            } ]
           }
         }
       },
@@ -610,6 +623,19 @@
           "optional" : {
             "type" : "boolean",
             "example" : true
+          },
+          "value" : {
+            "nullable" : true,
+            "example" : "",
+            "oneOf" : [ {
+              "type" : "string"
+            }, {
+              "type" : "integer"
+            }, {
+              "type" : "number"
+            }, {
+              "type" : "boolean"
+            } ]
           }
         }
       },
@@ -636,6 +662,19 @@
           "optional" : {
             "type" : "boolean",
             "example" : true
+          },
+          "value" : {
+            "nullable" : true,
+            "example" : "",
+            "oneOf" : [ {
+              "type" : "string"
+            }, {
+              "type" : "integer"
+            }, {
+              "type" : "number"
+            }, {
+              "type" : "boolean"
+            } ]
           }
         }
       },
@@ -748,15 +787,15 @@
             "explode" : false,
             "schema" : {
               "type" : "string",
-              "example" : "/algorithm/parameters/validation/pass"
+              "example" : "/algorithm/parameters/save/success"
             }
           },
-          "ce-node-id" : {
+          "ce-event-id" : {
             "style" : "simple",
             "explode" : false,
             "schema" : {
               "type" : "string",
-              "example" : "id-from-validation-event"
+              "example" : "ce-id-from-save-event"
             }
           },
           "ce-project-id" : {
@@ -824,15 +863,15 @@
             "explode" : false,
             "schema" : {
               "type" : "string",
-              "example" : "/algorithm/parameters/validation/fail"
+              "example" : "/algorithm/parameters/save/fail"
             }
           },
-          "ce-node-id" : {
+          "ce-event-id" : {
             "style" : "simple",
             "explode" : false,
             "schema" : {
               "type" : "string",
-              "example" : "id-from-validation-event"
+              "example" : "ce-id-from-save-event"
             }
           },
           "ce-project-id" : {
