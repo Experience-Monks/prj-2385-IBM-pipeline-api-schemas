@@ -1,0 +1,266 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Global Schema Attributes",
+    "description" : "",
+    "version" : "1.1"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/SOFTWARE_1/global-common-schemas/1.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  }, {
+    "url" : "https://virtserver.swaggerhub.com/SOFTWARE_1/global-schema-attrs/1.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "paths" : { },
+  "components" : {
+    "schemas" : {
+      "ComputeInputParams" : {
+        "required" : [ "data", "id", "type" ],
+        "type" : "object",
+        "properties" : {
+          "targets" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ComputeInputParams_targets"
+            }
+          },
+          "inputParams" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams"
+          }
+        }
+      },
+      "ComputeInputParamsDataObject" : {
+        "required" : [ "key", "size" ],
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "size" : {
+            "type" : "number"
+          }
+        }
+      },
+      "ComputeInputParamsDataParameters" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/ComputeInputParamsDataParameters_inner"
+        }
+      },
+      "NodeAnyData" : {
+        "type" : "object",
+        "properties" : {
+          "shape" : {
+            "type" : "string",
+            "example" : "round-rect"
+          },
+          "width" : {
+            "type" : "number",
+            "example" : 150
+          },
+          "height" : {
+            "type" : "number",
+            "example" : 150
+          },
+          "label" : {
+            "type" : "string",
+            "example" : "Round Rectangle"
+          },
+          "color" : {
+            "type" : "string",
+            "example" : "#ffffff"
+          }
+        }
+      },
+      "CanvasStateNode" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "example" : "inference-run-user-1"
+          },
+          "position" : {
+            "$ref" : "#/components/schemas/CanvasStateNode_position"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/CanvasStateNode_data"
+          },
+          "type" : {
+            "type" : "string",
+            "example" : "inference-run"
+          },
+          "selected" : {
+            "type" : "boolean"
+          },
+          "dragging" : {
+            "type" : "boolean"
+          },
+          "dragHandle" : {
+            "type" : "string",
+            "example" : ".react-flow-drag-handle"
+          },
+          "width" : {
+            "type" : "number",
+            "example" : 200
+          },
+          "height" : {
+            "type" : "number",
+            "example" : 250
+          },
+          "parentNode" : {
+            "type" : "string",
+            "example" : "input-container"
+          },
+          "zIndex" : {
+            "type" : "number",
+            "example" : 200
+          }
+        }
+      },
+      "CanvasStateEdge" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "example" : "5->9"
+          },
+          "source" : {
+            "type" : "string",
+            "example" : "5"
+          },
+          "target" : {
+            "type" : "string",
+            "example" : "9"
+          },
+          "deletable" : {
+            "type" : "boolean"
+          },
+          "focusable" : {
+            "type" : "boolean"
+          },
+          "selected" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "ComputeInputParams_targets" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "uploadModel", "uploadTargetProtein", "defineParameters" ]
+          },
+          "data" : {
+            "type" : "object",
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/ComputeInputParamsDataObject"
+            }, {
+              "$ref" : "#/components/schemas/ComputeInputParamsDataParameters"
+            } ]
+          }
+        }
+      },
+      "ComputeInputParams_inputParams_params_batch_size" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "integer",
+            "example" : 32
+          }
+        }
+      },
+      "ComputeInputParams_inputParams_params_temperature" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "number",
+            "example" : 1.4
+          }
+        }
+      },
+      "ComputeInputParams_inputParams_params_generated_length" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "integer",
+            "example" : 100
+          }
+        }
+      },
+      "ComputeInputParams_inputParams_params" : {
+        "type" : "object",
+        "properties" : {
+          "batch_size" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams_params_batch_size"
+          },
+          "temperature" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams_params_temperature"
+          },
+          "generated_length" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams_params_generated_length"
+          }
+        }
+      },
+      "ComputeInputParams_inputParams" : {
+        "type" : "object",
+        "properties" : {
+          "params" : {
+            "$ref" : "#/components/schemas/ComputeInputParams_inputParams_params"
+          }
+        }
+      },
+      "ComputeInputParamsDataParameters_inner" : {
+        "required" : [ "data", "id" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "enum" : [ "FEP", "AAA", "BBB", "CCC", "DDD", "EEE" ]
+          },
+          "data" : {
+            "type" : "object",
+            "properties" : {
+              "bondStrength" : {
+                "type" : "number"
+              },
+              "toxicity" : {
+                "type" : "number"
+              }
+            }
+          }
+        }
+      },
+      "CanvasStateNode_position" : {
+        "type" : "object",
+        "properties" : {
+          "x" : {
+            "type" : "number",
+            "example" : 500
+          },
+          "y" : {
+            "type" : "number",
+            "example" : 800
+          }
+        }
+      },
+      "CanvasStateNode_data" : {
+        "type" : "object",
+        "properties" : {
+          "title" : {
+            "type" : "string",
+            "example" : "Molecule List"
+          },
+          "done" : {
+            "type" : "boolean"
+          }
+        }
+      }
+    }
+  }
+}
