@@ -75,44 +75,21 @@
         }
       },
       "CanvasStateNode" : {
-        "required" : [ "data", "id", "position" ],
         "type" : "object",
         "properties" : {
           "id" : {
             "type" : "string",
-            "example" : "2"
+            "example" : "inference-run-user-1"
           },
           "position" : {
             "$ref" : "#/components/schemas/CanvasStateNode_position"
           },
           "data" : {
-            "type" : "object",
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/ComputeInputParams"
-            }, {
-              "$ref" : "#/components/schemas/NodeAnyData"
-            } ]
+            "$ref" : "#/components/schemas/CanvasStateNode_data"
           },
           "type" : {
             "type" : "string",
-            "example" : "shape"
-          },
-          "style" : {
-            "type" : "object"
-          },
-          "className" : {
-            "type" : "object"
-          },
-          "targetPosition" : {
-            "type" : "string",
-            "enum" : [ "top", "left", "right", "bottom" ]
-          },
-          "sourcePosition" : {
-            "type" : "string",
-            "enum" : [ "top", "left", "right", "bottom" ]
-          },
-          "hidden" : {
-            "type" : "boolean"
+            "example" : "inference-run"
           },
           "selected" : {
             "type" : "boolean"
@@ -120,53 +97,29 @@
           "dragging" : {
             "type" : "boolean"
           },
-          "draggable" : {
-            "type" : "boolean"
-          },
-          "selectable" : {
-            "type" : "boolean"
-          },
-          "connectable" : {
-            "type" : "boolean"
-          },
           "dragHandle" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : ".react-flow-drag-handle"
           },
           "width" : {
-            "type" : "string",
-            "nullable" : true
+            "type" : "number",
+            "example" : 200
           },
           "height" : {
-            "type" : "string",
-            "nullable" : true
+            "type" : "number",
+            "example" : 250
           },
           "parentNode" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "input-container"
           },
           "zIndex" : {
-            "type" : "number"
-          },
-          "extent" : {
-            "oneOf" : [ {
-              "type" : "string"
-            }, {
-              "type" : "array",
-              "example" : [ [ 1, 2 ], [ 3, 4 ] ],
-              "items" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "number"
-                }
-              }
-            } ]
-          },
-          "positionAbsolute" : {
-            "$ref" : "#/components/schemas/CanvasStateNode_position"
+            "type" : "number",
+            "example" : 200
           }
         }
       },
       "CanvasStateEdge" : {
-        "required" : [ "id", "source", "sourceHandle", "target", "targetHandle" ],
         "type" : "object",
         "properties" : {
           "id" : {
@@ -181,13 +134,14 @@
             "type" : "string",
             "example" : "9"
           },
-          "sourceHandle" : {
-            "type" : "string",
-            "enum" : [ "top", "left", "right", "bottom" ]
+          "deletable" : {
+            "type" : "boolean"
           },
-          "targetHandle" : {
-            "type" : "string",
-            "enum" : [ "top", "left", "right", "bottom" ]
+          "focusable" : {
+            "type" : "boolean"
+          },
+          "selected" : {
+            "type" : "boolean"
           }
         }
       },
@@ -286,10 +240,24 @@
         "type" : "object",
         "properties" : {
           "x" : {
-            "type" : "number"
+            "type" : "number",
+            "example" : 500
           },
           "y" : {
-            "type" : "number"
+            "type" : "number",
+            "example" : 800
+          }
+        }
+      },
+      "CanvasStateNode_data" : {
+        "type" : "object",
+        "properties" : {
+          "title" : {
+            "type" : "string",
+            "example" : "Molecule List"
+          },
+          "done" : {
+            "type" : "boolean"
           }
         }
       }
