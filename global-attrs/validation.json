@@ -80,7 +80,7 @@
         "properties" : {
           "id" : {
             "type" : "string",
-            "example" : "1"
+            "example" : "2"
           },
           "position" : {
             "$ref" : "#/components/schemas/CanvasStateNode_position"
